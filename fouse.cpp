@@ -25,10 +25,22 @@ public:
       if (std::string(argv[x]) == "-h" || std::string(argv[x]) == "--help") {
         std::cout << "-h|--help" << std::endl
                   << "-m|--mode <move|click>" << std::endl
+                  << "-x <x> relative move in width" << std::endl
+                  << "-y <y> relative move in height" << std::endl
                   << "----------------------" << std::endl
                   << "move <x> <y>" << std::endl
                   << "click <button>" << std::endl
                   << "rmove <x> <y>" << std::endl;
+        exit(0);
+      }
+
+      if (std::string(argv[x]) == "-x") {
+        int _x = std::stoi(argv[x + 1]);
+        this->rmove(_x, 0);
+        exit(0);
+      } else if (std::string(argv[x]) == "-y") {
+        int _y = std::stoi(argv[x + 1]);
+        this->rmove(0, _y);
         exit(0);
       }
 
@@ -57,7 +69,7 @@ public:
 
   ~Fouse() { XCloseDisplay(this->display); }
 
-public:
+private:
   Display *display;
 
   void click(int button, int time_pressed = 50) {
