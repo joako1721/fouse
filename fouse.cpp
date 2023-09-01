@@ -32,9 +32,7 @@ public:
                   << "click <button>" << std::endl
                   << "rmove <x> <y>" << std::endl;
         exit(0);
-      }
-
-      if (std::string(argv[x]) == "-x") {
+      } else if (std::string(argv[x]) == "-x") {
         int _x = std::stoi(argv[x + 1]);
         this->rmove(_x, 0);
         exit(0);
@@ -42,9 +40,8 @@ public:
         int _y = std::stoi(argv[x + 1]);
         this->rmove(0, _y);
         exit(0);
-      }
-
-      if (std::string(argv[x]) == "-m" || std::string(argv[x]) == "--mode") {
+      } else if (std::string(argv[x]) == "-m" ||
+                 std::string(argv[x]) == "--mode") {
         std::string mode = std::string(argv[x + 1]);
         if (mode == "move") {
           int _x = std::stoi(argv[x + 2]);
