@@ -2,7 +2,6 @@
 #include <X11/Xutil.h>
 #include <X11/extensions/XTest.h>
 #include <string>
-// #include <unistd.h>
 
 #include <chrono>
 #include <cstring>
@@ -117,12 +116,7 @@ public:
 };
 
 int main(int argc, char **argv) {
-  // int x = 0;
-  // int y = 0;
-  //
   Fouse fouse;
   fouse.parse_command(argc, argv);
-
-  // fouse.move(1, 100);
   return 0;
 }
